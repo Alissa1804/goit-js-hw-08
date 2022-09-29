@@ -23,7 +23,7 @@ if (savedFeedbackData) {
 
 formEl.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(savedFeedbackData);
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   formEl.reset();
   localStorage.removeItem('feedback-form-state');
 });
