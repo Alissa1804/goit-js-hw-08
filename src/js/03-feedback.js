@@ -13,13 +13,6 @@ formEl.addEventListener(
   }, 500)
 );
 
-formEl.addEventListener('submit', event => {
-  event.preventDefault();
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
-  formEl.reset();
-  localStorage.removeItem('feedback-form-state');
-});
-
 const savedFeedbackData = JSON.parse(
   localStorage.getItem('feedback-form-state')
 );
@@ -27,3 +20,10 @@ if (savedFeedbackData) {
   email.value = savedFeedbackData.email;
   message.value = savedFeedbackData.message;
 }
+
+formEl.addEventListener('submit', event => {
+  event.preventDefault();
+  console.log(savedFeedbackData);
+  formEl.reset();
+  localStorage.removeItem('feedback-form-state');
+});
